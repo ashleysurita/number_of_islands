@@ -3,10 +3,10 @@ function(grid) {
     const row = grid.length
     const col = grid[0].length
     
-    for(let i=0;i<grid.length;i++){
-        for(let j=0;j<grid[i].length;j++){
+    for(let i = 0; i < grid.length; i++){
+        for(let j = 0; j < grid[i].length; j++){
             // if we find 'land', then we search for the island size
-            if(grid[i][j]==="1"){
+            if(grid[i][j] === "1"){
                 dfs(i,j) 
                 count++ 
             }
@@ -19,16 +19,16 @@ function(grid) {
         if(row < 0 || row >= grid.length || col < 0 || col >= grid[row].length) return  
         
         // if we find water, there's no more land connecting to the island so return
-        if(grid[row][col]==="0") return 
+        if(grid[row][col] === "0") return 
         
         // set current location to '0' so we know we counted it
-        grid[row][col]="0" 
+        grid[row][col] = "0" 
         
         // call dfs on surrounding coordinates to find adjacent land
-        dfs(row-1, col) 
-        dfs(row+1, col) 
-        dfs(row, col-1) 
-        dfs(row, col+1)
+        dfs(row - 1, col) 
+        dfs(row + 1, col) 
+        dfs(row, col - 1) 
+        dfs(row, col + 1)
     }
     
     return count
